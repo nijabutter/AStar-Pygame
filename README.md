@@ -20,4 +20,4 @@ oooooooo███████
 ```
 
 This has been implemented into a maze generator to solve mazes
-https://github.com/nijabutter/Maze-Generator-Pygame
+https://github.com/nijabutter/Maze-Solver-Pygame/
