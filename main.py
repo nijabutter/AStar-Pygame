@@ -4,14 +4,15 @@ import time
 import math
 from Cell import Cell
 
-W_WIDTH, W_HEIGHT = 800, 800 # does not affect complexity just the size of each cell
-ACROSS, DOWN = 100, 100 # how many cells x and y DOES affect complexity
-C_WIDTH  = W_WIDTH // ACROSS
+W_WIDTH, W_HEIGHT = 800, 800 # window size
+ACROSS, DOWN = 100, 100 # columns and rows
+FPS = 1000 # maxmimum 1000
+
 C_HEIGHT = W_HEIGHT // DOWN
 goalX = (ACROSS-1) * C_WIDTH
 goalY = (DOWN-1) * C_HEIGHT
 window = pygame.display.set_mode((W_WIDTH, W_HEIGHT))
-pygame.display.set_caption("Dino")
+pygame.display.set_caption("A* Pathfinding")
 isRunning = True
 background = (0, 0, 0)
 pygame.init()
@@ -20,7 +21,8 @@ isWaiting = True
 
 startX = 0
 startY = 0
-FPS = 1000
+if FPS > 1000:
+    FPS = 1000
 fpsdelay = 1000 // FPS
 def findLowestF():
     lowestIndex = 0
@@ -64,7 +66,6 @@ def Setup():
                     # top left
                     cells[y-1][x-1].neighbours.append(cells[y][x])
                     cells[y][x].neighbours.append(cells[y-1][x-1])
-    cells[goalY//C_HEIGHT][goalX//C_WIDTH].obstacle = False
     openSet.append(cells[startY][startX])
     current = openSet[0]
 
