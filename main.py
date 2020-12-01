@@ -8,7 +8,7 @@ W_WIDTH, W_HEIGHT = 800, 800 # window size
 ACROSS, DOWN = 100, 100 # columns and rows
 FPS = 1000 # maxmimum 1000
 
-C_HEIGHT = W_HEIGHT // DOWN
+C_WIDTH = C_HEIGHT = W_HEIGHT // DOWN
 goalX = (ACROSS-1) * C_WIDTH
 goalY = (DOWN-1) * C_HEIGHT
 window = pygame.display.set_mode((W_WIDTH, W_HEIGHT))
